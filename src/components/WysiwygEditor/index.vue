@@ -69,6 +69,8 @@ const wrapTag = (tagName, style) => {
 
 // Форматирование текста
 const formatText = (type) => {
+    const selection = document.getSelection()
+    if (!selection.anchorNode) return
     performAction()
     if (type === 'title') wrapTag('h3', ['font-size: 40px;'])
     if (type === 'paragraph') wrapTag('p')
