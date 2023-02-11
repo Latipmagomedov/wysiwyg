@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: $dark-1;
+  color: $grey;
+}
+
+button, input, textarea, select {
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
+
+button {
+  background-color: $dark-2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container {
+  width: 77%;
+  max-width: 739px;
+  margin: 0 auto;
+}
