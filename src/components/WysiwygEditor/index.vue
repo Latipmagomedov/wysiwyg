@@ -63,14 +63,16 @@ const wrapTag = (tagName, style) => {
     const tag = document.createElement(tagName)
     if (style) tag.style.cssText = style.join('')
     const userSelection = window.getSelection();
+    if(!userSelection.anchorNode || !userSelection.getRangeAt(0).toString()) {
+        alert("Выделите нужный для форматирования текст")
+        return
+    }
     const selectedTextRange = userSelection.getRangeAt(0)
     selectedTextRange.surroundContents(tag)
 }
 
 // Форматирование текста
 const formatText = (type) => {
-    const selection = document.getSelection()
-    if (!selection.anchorNode) return
     performAction()
     if (type === 'title') wrapTag('h3', ['font-size: 40px;'])
     if (type === 'paragraph') wrapTag('p')
