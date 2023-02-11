@@ -63,7 +63,7 @@ const wrapTag = (tagName, style) => {
     const tag = document.createElement(tagName)
     if (style) tag.style.cssText = style.join('')
     const userSelection = window.getSelection();
-    if(!userSelection.anchorNode || !userSelection.getRangeAt(0).toString()) {
+    if (!userSelection.anchorNode || !userSelection.getRangeAt(0).toString()) {
         alert("Выделите нужный для форматирования текст и нажмите на нужный тип форматирования")
         return
     }
