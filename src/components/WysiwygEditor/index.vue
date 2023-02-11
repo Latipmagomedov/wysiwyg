@@ -80,23 +80,10 @@ const addImage = () => {
     if (!link) return
 
     const selection = document.getSelection()
-    if (document.execCommand && document.queryCommandSupported('insertImage')) {
-        if (!selection.anchorNode) {
-            editor.value += `<img src="${link}" alt="image" style="max-width: 400px">`
-        } else {
-            document.execCommand('insertImage', false, link)
-        }
+    if (document.execCommand && document.queryCommandSupported('insertImage') && selection.anchorNode) {
+        document.execCommand('insertImage', false, link)
     } else {
-        let cursorIndex = null
-        if (selection.anchorNode) {
-            let range = new Range
-            range.setStart(selection.anchorNode, 0)
-            range.setEnd(selection.anchorNode, selection.anchorOffset)
-            cursorIndex = range.toString().length
-        }
-        const valueArray = editor.value.split('')
-        valueArray.splice(cursorIndex - 1, 0, `<img src="${link}" alt="image" style="max-width: 400px">`)
-        editor.value = valueArray.join('')
+        editor.value += `<img src="${link}" alt="image" style="max-width: 400px">`
     }
 }
 
