@@ -64,7 +64,7 @@ const wrapTag = (tagName, style) => {
     if (style) tag.style.cssText = style.join('')
     const userSelection = window.getSelection();
     if(!userSelection.anchorNode || !userSelection.getRangeAt(0).toString()) {
-        alert("Выделите нужный для форматирования текст")
+        alert("Выделите нужный для форматирования текст и нажмите на нужный тип форматирования")
         return
     }
     const selectedTextRange = userSelection.getRangeAt(0)
